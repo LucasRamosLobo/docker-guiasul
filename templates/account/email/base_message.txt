@@ -1,0 +1,7 @@
+{% load i18n %}{% autoescape off %}{% blocktrans with site_name=current_site.name %}Saudações do Guia sul da Bahia!{% endblocktrans %}
+
+{% block content %}{% endblock %}
+
+{% blocktrans with site_name=current_site.name site_domain=current_site.domain %}Obrigado por usar o Guia sul da Bahia!
+{{ site_domain }}{% endblocktrans %}
+{% endautoescape %}

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+   {% include 'head.html' %}
+      <style>
+         li {
+         font-size: 0.95rem;
+         line-height: 1.7rem;
+         }
+         .circle{
+         background-color: #e6ffe6;
+         border-radius: 50px;
+         padding: 20px;
+         }
+         .circle:hover{
+         background-color:#99ff99;
+         }
+         .rectangle{
+         background-color: #ffb3b3;
+         padding: 20px;
+         }
+         .rectangle:hover{
+         background-color:#ffe6e6;
+         }
+         html,
+       body,
+       header,
+       .jarallax {
+       height: 1000px;
+       min-height: 800px;
+       }
+       .logo {
+            margin-top: -40px;
+            display: inline-block;
+      }
+  .a {
+     color: aliceblue;
+  }
+  .nav-menu {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  background: #252a33; }
+  a {
+ 
+  color:aliceblue }
+  h6 {
+  font-size: 21px;
+  font-weight: 400;
+  color:black; }
+  .slider {
+  background: url(../images/slider.jpg) no-repeat;
+  background-size: cover;
+  min-height: 800px; }
+    </style>
+ 
+   
+ <body>
+   <div class="a">
+ <!--============================= HEADER =============================-->
+ <div class="nav-menu">
+ 
+                       <nav class="navbar navbar-expand navbar-dark bg-dark mb-3">
+                           <div class="container">
+                               <a class="navbar-brand" href="{% url 'pages:home' %}">Novo App</a>
+                               <ul class="navbar-nav">
+                                   {% if user.is_authenticated %}
+                                   <li class="nav-item">
+                                       <a class="nav-link" href="{% url 'account_logout' %}">Sair</a>
+                                   </li>
+                                   {% else %}
+                                   <li class="nav-item">
+                                       <a class="nav-link" href="{% url 'account_login' %}">Entrar</a>
+                                   </li>
+                                   <li class="nav-item">
+                                       <a class="nav-link" href="{% url 'account_signup' %}">Cadastro</a>
+                                   </li>
+                                   {% endif %}
+                               </ul>
+                           </div>
+                       </nav>
+                
+                
+                                   
+                               
+                             
+                             </ul>
+                         </div>
+                     </nav>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+      <!-- /main nav -->
+</div>
+</header>
+<body>
+         
+        
+        
+<section>
+   <div class="" style="max-height:600px;">
+      <img src="{{recipe.image}}" style="width: 100%">
+   </div>
+   
+</section>
+       
+      <!-- Main Navigation -->
+      <!-- Main Layout -->
+      <main>
+         
+         <div class="container-fluid mt-5 mt-md-0 mb-5">
+            <!-- Grid row -->
+            <div class="row" style="margin-top: -100px;">
+               <!-- Grid column -->
+               <div class="col-md-12 px-lg-5">
+                  <!-- Card -->
+                  <div class="card pb-5 mx-md-3">
+                     <h6>#{{recipe.topic.title}}</h6>
+                     <section class="reserve-block">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h5>{{recipe.title}}</h5>
+                                    
+                                   
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="reserve-seat-block">
+                                      
+                                       
+                                        <div class="review-btn">
+                                            <a href="#" class="btn btn-outline-danger">Fazer Comentário</a>
+                                            
+                                        </div>
+                                        <div class="reserve-btn">
+                                            <div class="featured-btn-wrap">
+                                                <a href="#" class="btn btn-danger">Entrar em Contato</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="light-bg booking-details_wrap">
+                     <div class="container">
+                      
+
+                    
+   
+                              <!-- Grid column -->
+                              <div class="col-md-12 col-xl-12">
+                                 <!-- Grid row -->
+                                 <!---------------------------------------------------------------------------------------------------->
+                                 <h6>Descrição</h6>
+                                 <p> {{recipe.descricao|safe}}</p>
+                                 
+                                 <div class="row">
+                                    <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12">
+                                       
+                                       <div class="jumbotron" style="background-color: #f5f5f0">
+                                          
+                                          <span>Endereço:</span>
+                                    <div class="address">
+                                       <span class="icon-location-pin"></span>
+                                       
+                                       <p>{{recipe.endereco|safe}}</p>
+                                   </div>
+                                        
+                                       </div>
+                                    </div>
+                                    <div class="col-md-6 col-lg-6 col-xl-6 col-sm-12 col-xs-12">
+                                       <div class="jumbotron" style="background-color: #f5f5f0">
+                                          <span>Serviços:</span>
+                                          <p> {{recipe.servicos|safe}}</p>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                   
+              
+                                 <!---------------------------------------------------------------------------------------------------->
+                                 <!-- Grid row -->
+                                 <div class="row my-5">
+                                    <!-- Grid column -->
+                                    <div class="col-md-12 text-center">
+                                       <h4 class="text-center font-weight-bold dark-grey-text mt-3 mb-3">
+                                          <strong>Share this post: </strong>
+                                       </h4>
+                                       <button type="button" class="btn btn-fb btn-sm">
+                                       <i class="fab fa-facebook-f left"></i> Facebook</button>
+                                       <!-- Twitter -->
+                                       <button type="button" class="btn btn-tw btn-sm">
+                                       <i class="fab fa-twitter left"></i> Twitter</button>
+                                       <!-- Google + -->
+                                       <button type="button" class="btn btn-gplus btn-sm">
+                                       <i class="fab fa-google-plus-g left"></i> Google +</button>
+                                    </div>
+                                    <!-- Grid column -->
+                                 </div>
+                                 <!-- Grid row -->
+                                 <hr class="mt-5">
+                                 <!-- Section: Leave a reply (Not Logged In User) -->
+                              </div>
+                              <!-- Grid column -->
+                           </div>
+                           <!-- Grid row -->
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Card -->
+               </div>
+               <!-- Grid column -->
+            </div>
+            <!-- Grid row -->
+            <div class="text-center mt-5">
+               <a href="{% url 'home' %}">Back Home</a>
+            </div>
+         </div>
+      </main>
+      <!-- Main Layout -->
+      
+      <!-- Footer -->
+      <footer class="main-block dark-bg">
+         <div class="container">
+             <div class="row">
+                 <div class="col-md-12">
+                     <div class="copyright">
+                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                         <p>Copyright &copy; 2018 Listing. All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">LRL</a></p>
+                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                         <ul>
+                             <li><a href="#"><span class="ti-facebook"></span></a></li>
+                             <li><a href="#"><span class="ti-twitter-alt"></span></a></li>
+                             <li><a href="#"><span class="ti-instagram"></span></a></li>
+                         </ul>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </footer>
+      </body>
+      </html>
+      <!-- SCRIPTS -->
+      {% include 'scripts.html' %}
+      
+      <script>
+         new WOW().init();
+         
+         $(function () {
+           var selectedClass = "";
+           $(".filter").click(function () {
+             selectedClass = $(this).attr("data-rel");
+             $("#gallery").fadeTo(100, 0.1);
+             $("#gallery div").not("." + selectedClass).fadeOut().removeClass('animation');
+             setTimeout(function () {
+               $("." + selectedClass).fadeIn().addClass('animation');
+               $("#gallery").fadeTo(300, 1);
+             }, 300);
+           });
+         });
+      </script>

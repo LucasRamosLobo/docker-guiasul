@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<style>
+.navbar {
+    padding: .1rem 0;
+    font-family:"Source Sans Pro", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: left; }
+    a {
+    
+    color:#ef6100; }
+    
+  
+      </style>
+  
+        <!-- main nav -->
+       <body>
+         
+        <!--============================= HEADER =============================-->
+        <div class="nav-menu">
+        
+          <nav class="navbar navbar-expand">
+              <div class="container">
+                  <a href="{% url 'pages:home' %}"><img src="{% static 'img/ÍCONE_PRINCIPAL.png' %}" class="navbar-brand" width="60" height="65" href="{% url 'pages:home' %}"></a>
+                  <ul class="navbar-nav">
+                      {% for emailaddress in user.emailaddress_set.all %}
+                    
+                      {% if emailaddress.verified %}
+                      <li class="nav-item">
+                          <a class="nav-link" href="cadastrar/">Anuciar</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> {{user.username}}  </a>
+                          <ul class="dropdown-menu fade-up">
+                            <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
+                            <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
+                            <li><a class="dropdown-item" href="#"> Submenu item 3 </a></li>
+                          </ul>
+                      </li>
+                      {% else %}
+                      <li class="nav-item">
+                          <a class="nav-link" href="{% url 'account_email' %}">Confirme seu Email para Anunciar</a>
+                      </li>
+                    
+                      {% endif %}
+                     
+                      {% endfor %}
+                      {% if user.is_authenticated %}
+                    
+                      <li class="nav-item dropdown">
+                          <a class="nav-link  dropdown-toggle" href="#" data-toggle="dropdown"> {{user.username}}  </a>
+                          <ul class="dropdown-menu fade-up">
+                            <li><a class="dropdown-item" href="#"> Submenu item 1</a></li>
+                            <li><a class="dropdown-item" href="#"> Submenu item 2 </a></li>
+                            <li><a class="dropdown-item" href="#"> Submenu item 3 </a></li>
+                          </ul>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{% url 'account_logout' %}">Sair</a>
+                      </li>
+                      {% else %}
+                      <li class="nav-item">
+                          <a class="nav-link" href="{% url 'account_login' %}">Entrar</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{% url 'account_signup' %}">Cadastro</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="{% url 'account_login' %}">Anuncie</a>
+                      </li>
+                     
+                      {% endif %}
+                     
+                  </ul>
+              </div>
+          </nav>
+                       
+                       
+                                          
+                                      
+                                    
+                                    </ul>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+              <!-- /main nav -->
+      </div>
+    </header>
+   
+  
+    <body>
+        &nbsp;</br>
+        &nbsp;</br>
+        &nbsp;</br>
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+</body>
+</html>
